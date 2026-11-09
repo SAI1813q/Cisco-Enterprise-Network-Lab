@@ -12,6 +12,9 @@ It covers enterprise switching, dynamic routing, gateway redundancy, network sec
 
 The network is structured around three hierarchical layers:
 
+<img width="1108" height="611" alt="Screenshot 2026-11-09 115144" src="https://github.com/user-attachments/assets/bb12d1c5-89de-4156-ade5-fd659ca674df" />
+
+
 ### 1. Core Layer
 - Two interconnected Layer 3 core switches.
 - High-speed backbone connectivity.
@@ -185,8 +188,7 @@ Through this implementation, I gained practical experience in:
 
 Completed – Cisco Packet Tracer enterprise network implementation.
 
----
 
 **Author:** Sai Teja
 
-**GitHub:** [SAI1813q](https://github.com/SAI1813q)
+
