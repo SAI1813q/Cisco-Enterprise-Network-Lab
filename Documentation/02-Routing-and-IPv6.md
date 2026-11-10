@@ -25,7 +25,7 @@ show ip interface brief
 show interfaces description
 ```
 
-The `show ip interface brief` output supplied for this documentation update is the source for this table. It can be added to the repository's `ScreenShots/` folder when you upload that capture; it is not linked to the separate routing-table screenshot.
+Evidence: [64 – R1 Interface Brief](../ScreenShots/64-R1-Interface-Brief.png).
 
 ## Layer 3 distribution interfaces
 
