@@ -135,6 +135,10 @@ Connectivity checks include end-device addressing, DNS resolution, SSH access, w
 
 Open the completed file in Cisco Packet Tracer to explore the topology and configurations. The baseline file is provided to show the starting point.
 
+## Configuration documentation
+
+Detailed configuration references are available in the [Documentation](Documentation/README.md) folder. The guides cover switching and redundancy, routing and IPv6, security controls, network services, wireless configuration and LLDP, with Cisco IOS command examples and links to the corresponding screenshots.
+
 ## Screenshot documentation
 
 The screenshots are grouped by implementation area and numbered in workflow order. Expand a section to view its configuration evidence.
