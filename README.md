@@ -330,7 +330,7 @@ The screenshots are grouped by implementation area and numbered in workflow orde
 </details>
 
 <details>
-<summary>ACLs and NAT/PAT (4 screenshots)</summary>
+<summary>ACLs and NAT/PAT (5 screenshots)</summary>
 
 **Standard and Extended ACLs**
 
@@ -347,6 +347,10 @@ The screenshots are grouped by implementation area and numbered in workflow orde
 **NAT and PAT**
 
 ![NAT and PAT](ScreenShots/43-NAT-and-PAT.png)
+
+**R1 NAT/PAT Running Configuration**
+
+![R1 NAT/PAT Running Configuration](ScreenShots/65-R1-NAT-PAT-Running-Config.png)
 
 </details>
 
