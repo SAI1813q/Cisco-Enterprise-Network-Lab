@@ -12,7 +12,7 @@ The repository includes both the initial baseline topology and the completed Pac
 - **Resilience:** EtherChannel, Rapid PVST+ and HSRP
 - **Security:** ACLs, port security, DHCP snooping, Dynamic ARP Inspection, SSH, dynamic NAT, static NAT and PAT overload
 - **Services:** DHCP, DNS, NTP, Syslog and FTP
-- **Wireless:** Wireless LAN Controller (WLC), WLAN/SSID configuration and wireless client connectivity
+- **Wireless:** Wireless LAN Controller (WLC), WLAN/SSID configuration and wireless client configuration evidence
 
 ## 🏗️ Network topology
 
@@ -457,7 +457,9 @@ This project provided hands-on practice in designing a multi-office network, seg
 
 ## 📊 Project status
 
-**Implementation and screenshot documentation uploaded.** The Packet Tracer files and screenshots are included in this repository.
+**Implementation and screenshot documentation uploaded.** The Packet Tracer files and screenshots are included in this repository. The completed lab is treated as tested based on the supplied Packet Tracer evidence. The wireless client addressing anomaly is explicitly documented as a Packet Tracer simulator issue and is not presented as a successful DHCP test.
+
+> ⚠️ **Public screenshot note:** Screenshots are retained unchanged as requested and may display lab FTP credentials, an NTP authentication key or wireless security details. Treat these values as exposed and lab-only. Never reuse them on real systems; rotate them if they were reused elsewhere.
 
 ---
 
