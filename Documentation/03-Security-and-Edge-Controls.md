@@ -122,6 +122,17 @@ Screenshot references: [40 – Standard and Extended ACLs](../ScreenShots/40-Sta
 
 The NAT evidence shows a pool named `POOL1` configured with 203.0.113.200–203.0.113.207 and mask 255.255.255.248 (`/29`). Standard ACL 2 selects inside source addresses, and the configuration uses PAT overload. The translation table also shows a static mapping from inside-local 10.5.0.4 to inside-global 203.0.113.113.
 
+**R1 NAT interface roles (running configuration):**
+
+| Interface | NAT role |
+|---|---|
+| `GigabitEthernet0/0` | `ip nat inside` |
+| `GigabitEthernet0/1` | `ip nat inside` |
+| `GigabitEthernet0/0/0` | `ip nat outside` |
+| `GigabitEthernet0/1/0` | `ip nat outside` |
+
+The supplied R1 running-configuration screenshot confirms the `POOL1` definition, ACL 2 pool overload command, and static mapping `10.5.0.4` → `203.0.113.113`. The pool is documented as entered in the lab; its `/29` boundary caveat is explained below.
+
 **Addressing note:** A `/29` subnet has eight total addresses. For the 203.0.113.200/29 block, `.200` is the network address and `.207` is the broadcast address; `.201–.206` are the usable host addresses. The Packet Tracer pool command is documented as configured in the lab and has not been silently changed. For a production-style configuration, use only valid host addresses in the pool.
 
 ```cisco
