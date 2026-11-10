@@ -1,8 +1,8 @@
-# Routing and IPv6 Configuration Reference
+# 🌐 Routing and IPv6 Configuration Reference
 
 This guide summarizes the routed design shown in the completed Packet Tracer lab. It covers R1 interfaces, OSPF Area 0, static and floating routes, and IPv6 addressing and routing.
 
-## R1 interface addressing
+## 🧭 R1 interface addressing
 
 R1 is the edge router. The uploaded `show ip interface brief` screenshot shows the following interfaces and addresses. R1 does **not** have separate SVIs for VLANs 10, 20, 30, 40 or 99; those VLAN gateway interfaces are implemented on the distribution switches.
 
@@ -27,7 +27,7 @@ show interfaces description
 
 Evidence: [64 – R1 Interface Brief](../ScreenShots/64-R1-Interface-Brief.png).
 
-## Layer 3 distribution interfaces
+## 🔀 Layer 3 distribution interfaces
 
 The distribution switches—not R1—provide the VLAN gateway SVIs. The Office A distribution screenshot shows these addresses on one device:
 
@@ -43,7 +43,7 @@ The distribution switches—not R1—provide the VLAN gateway SVIs. The Office A
 
 Office B VLAN 30 is the SRV1 server network. The VLAN gateway interfaces for each office are configured on that office's distribution layer.
 
-## OSPFv2 – Area 0
+## 🗺️ OSPFv2 – Area 0
 
 The screenshots show OSPF process 1 and Area 0 on distribution switches, core switches and R1. Visible router IDs include R1 10.0.0.76, Core switch 1 10.0.0.77 and Office A DSW-A1 10.0.0.79.
 
@@ -78,7 +78,7 @@ show ip route ospf
 
 Screenshot references: [21 – Office A DS1 OSPF](../ScreenShots/21-Office-A-DS1-OSPF.png), [22 – Office A DS2 OSPF](../ScreenShots/22-Office-A-DS2-OSPF.png), [23 – Office B DS1 OSPF](../ScreenShots/23-Office-B-DS1-OSPF.png), [24 – Office B DS2 OSPF](../ScreenShots/24-Office-B-DS2-OSPF.png), [25 – Core switch 1 OSPF](../ScreenShots/25-Core-Switch-1-OSPF.png), [26 – Core switch 2 OSPF](../ScreenShots/26-Core-Switch-2-OSPF.png), [27 – Router OSPF](../ScreenShots/27-Router-OSPF.png).
 
-## Static and floating static routes
+## 🛣️ Static and floating static routes
 
 The R1 routing evidence shows a primary default route via 203.0.113.1 and a floating default route via 203.0.113.7 with administrative distance 2.
 
@@ -98,7 +98,7 @@ show running-config | include ip route
 
 Screenshot references: [28 – R1 Routing Table](../ScreenShots/28-R1-Routing-Table.png), [29 – R1 Floating Static and OSPF Routes](../ScreenShots/29-R1-Floating-Static-and-OSPF-Routes.png).
 
-## IPv6 addressing: EUI-64, manual global addresses and link-local addresses
+## 🌍 IPv6 addressing: EUI-64, manual global addresses and link-local addresses
 
 The IPv6 interface output shows both EUI-64-generated global unicast addresses and manually assigned global IPv6 addresses. It also displays link-local addresses on the active interfaces.
 
@@ -109,7 +109,7 @@ The IPv6 interface output shows both EUI-64-generated global unicast addresses a
 | GigabitEthernet0/0/0 | 2001:DB8:A::2/64 | FE80::2E0:A3FF:FE95:4D4E | Manually assigned global address |
 | GigabitEthernet0/1/0 | 2001:DB8:B::2/64 | FE80::2E0:F7FF:FE68:6426 | Manually assigned global address |
 
-The EUI-64 interfaces use a /64 prefix and derive the interface identifier from the interface MAC address. The other two interfaces use manually assigned global addresses. Link-local addresses are shown separately and are used for communication on the local link and IPv6 neighbor/router functions.
+The EUI-64 interfaces use a /64 prefix and derive the interface identifier from the interface MAC address. The other two interfaces use manually assigned global addresses. Explicit link-local addresses are also configured and shown separately; they support communication and neighbor/router functions on the local link.
 
 Representative IOS command patterns:
 
