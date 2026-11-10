@@ -239,7 +239,7 @@ The screenshots are grouped by implementation area and numbered in workflow orde
 </details>
 
 <details>
-<summary>Routing and IPv6 (10 screenshots)</summary>
+<summary>Routing and IPv6 (11 screenshots)</summary>
 
 **Office A DS1 OSPF**
 
@@ -268,6 +268,10 @@ The screenshots are grouped by implementation area and numbered in workflow orde
 **Router OSPF**
 
 ![Router OSPF](ScreenShots/27-Router-OSPF.png)
+
+**R1 Interface Brief**
+
+![R1 Interface Brief](ScreenShots/64-R1-Interface-Brief.png)
 
 **R1 Routing Table**
 
