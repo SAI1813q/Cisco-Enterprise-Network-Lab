@@ -4,7 +4,9 @@ This document summarizes the services visible in the lab evidence: DHCP, DNS, Sy
 
 ## DHCP pools
 
-The R1 configuration screenshot shows excluded address ranges and pools for management, PC, phone and Wi-Fi networks. The following entries are readable in the screenshot:
+R1 provides DHCP pools for management, PC, phone and Wi-Fi networks. VLAN 30 in Office B is reserved for the SRV1 server network; the DHCP pool list below does not define a separate DHCP pool for that server VLAN.
+
+The following entries are readable in the R1 configuration screenshot:
 
 ```cisco
 ip dhcp excluded-address 10.0.0.1 10.0.0.10
@@ -13,6 +15,7 @@ ip dhcp excluded-address 10.2.0.1 10.2.0.10
 ip dhcp excluded-address 10.3.0.1 10.3.0.10
 ip dhcp excluded-address 10.4.0.1 10.4.0.10
 ip dhcp excluded-address 10.6.0.1 10.6.0.10
+ip dhcp excluded-address 10.0.0.17 10.0.0.26
 
 ip dhcp pool A-Mgmt
  network 10.0.0.0 255.255.255.240
@@ -59,6 +62,8 @@ ip dhcp pool wi-fi
  domain-name jeremysitlab.com
 ```
 
+**VLAN distinction:** Office B VLAN 30 carries SRV1. Office A VLAN 40 is the Wi-Fi VLAN represented by the Wi-Fi DHCP pool. Do not describe Office B VLAN 30 as Wi-Fi or Office B VLAN 40 as the server VLAN.
+
 Verification:
 
 ```cisco
@@ -71,7 +76,7 @@ Screenshot references: [31 – DHCP Pool Configuration](../ScreenShots/31-DHCP-P
 
 ## DNS
 
-The server screenshot shows the DNS service enabled on SRV1, with IPv4 address 10.5.0.4/24. The resource-record screenshot shows these entries:
+The server screenshot shows DNS enabled on SRV1, with IPv4 address 10.5.0.4/24. The resource-record screenshot shows these entries:
 
 | Name | Record type | Value |
 |---|---|---|
@@ -80,7 +85,7 @@ The server screenshot shows the DNS service enabled on SRV1, with IPv4 address 1
 | www.jeremysitlab.com | CNAME | jeremysitlab.com |
 | youtube.com | A | 152.250.31.93 |
 
-These are the values captured in the Packet Tracer DNS service; they are lab records and should not be treated as authoritative public DNS records.
+These are Packet Tracer lab records, not authoritative public DNS records.
 
 Client-side check shown in the evidence:
 
@@ -92,17 +97,10 @@ Screenshot references: [51 – DNS Server](../ScreenShots/51-DNS-Server.png), [5
 
 ## Syslog
 
-The Syslog service is enabled on SRV1. The server address shown in the screenshots is 10.5.0.4. R1's logging output shows messages being sent to host 10.5.0.4 on UDP port 514.
-
-Representative router command:
+The Syslog service is enabled on SRV1 at 10.5.0.4. R1's logging output shows messages sent to host 10.5.0.4 on UDP port 514.
 
 ```cisco
 logging host 10.5.0.4
-```
-
-Verification:
-
-```cisco
 show logging
 ```
 
@@ -111,8 +109,6 @@ Screenshot references: [47 – R1 Syslog Configuration](../ScreenShots/47-R1-Sys
 ## NTP
 
 The NTP screenshots show authenticated NTP configuration. R1 is configured as an NTP master at stratum 5 and also has an upstream NTP server entry. The client screenshot shows a client using R1 at 10.0.0.76.
-
-Example with the secret deliberately redacted:
 
 ```cisco
 ! Time source / master
@@ -128,7 +124,7 @@ ntp trusted-key 1
 ntp server 10.0.0.76 key 1
 ```
 
-Use the same key ID and matching secret on the participating devices. Never commit the actual authentication key to a public repository.
+Use the same key ID and matching secret on participating devices. Do not publish the actual authentication key.
 
 Verification:
 
@@ -141,7 +137,7 @@ Screenshot references: [49 – NTP Master and Client](../ScreenShots/49-NTP-Mast
 
 ## SSH management access
 
-The SSH screenshot shows SSH version 2 and VTY lines configured for local login, synchronous logging and SSH-only inbound transport. The VTY ranges are 0–4 and 5–15.
+The SSH evidence shows SSH version 2 and VTY lines configured for local login, synchronous logging and SSH-only inbound transport.
 
 ```cisco
 ip ssh version 2
@@ -155,7 +151,7 @@ line vty 5 15
  transport input ssh
 ```
 
-The local user, domain name, RSA key generation and management ACL must also be configured as required by the device setup. Do not copy passwords or private keys into this repository.
+The local user, domain name, RSA key generation and management ACL must also be configured as required by the device setup. Do not commit passwords or private keys.
 
 Verification:
 
@@ -168,15 +164,13 @@ Screenshot references: [44 – SSH Configuration](../ScreenShots/44-SSH-Configur
 
 ## FTP file transfer and boot workflow
 
-The FTP screenshots show the FTP service enabled on SRV1, a file listing, and the router's system image information before and after the demonstrated workflow. The router-side configuration uses FTP credentials, but the actual credential values are intentionally omitted here.
-
-Generic command pattern (replace placeholders locally; do not commit credentials):
+The FTP evidence shows the FTP service enabled on SRV1, a file listing and router system-image information before and after the demonstrated FTP-based workflow. The router-side FTP credentials are intentionally omitted.
 
 ```cisco
 ip ftp username <FTP_USERNAME>
 ip ftp password <FTP_PASSWORD>
 ```
 
-The before/after screenshots show the IOS image filename and version information changing after the FTP-based file workflow. They are evidence of the demonstrated lab process; this reference intentionally does not prescribe a boot command that is not legible in the captured output.
+The before/after screenshots document the system-image information around the FTP workflow. Credentials are placeholders here; do not publish reusable passwords.
 
 Screenshot references: [54 – FTP User Credentials](../ScreenShots/54-FTP-User-Credentials.png), [55 – FTP File Transfer](../ScreenShots/55-FTP-File-Transfer.png), [56 – FTP Boot Before System Info](../ScreenShots/56-FTP-Boot-Before-System-Info.png), [57 – FTP Boot After System Info](../ScreenShots/57-FTP-Boot-After-System-Info.png).
