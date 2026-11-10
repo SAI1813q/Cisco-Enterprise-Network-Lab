@@ -1,44 +1,44 @@
-# Cisco Enterprise Network Lab
+# 🌐 Cisco Enterprise Network Lab
 
 A multi-office enterprise network designed and implemented in **Cisco Packet Tracer** using a hierarchical three-tier architecture. The lab brings together switching, routing, redundancy, network services, infrastructure security and centrally managed wireless connectivity.
 
-The repository includes both the initial baseline topology and the completed Packet Tracer implementation, along with screenshots documenting the configuration and verification process.
+The repository includes both the initial baseline topology and the completed Packet Tracer implementation, along with screenshots documenting the configuration and verification process. The screenshots are the project's evidence; the written guides provide reproducible command references and explain relevant design choices.
 
-## Project at a glance
+## 📌 Project at a glance
 
 - **Platform:** Cisco Packet Tracer
 - **Design:** Two-office enterprise network with core, distribution and access layers
 - **Routing:** OSPF, static routing, floating static routes and IPv6 static routing
 - **Resilience:** EtherChannel, Rapid PVST+ and HSRP
-- **Security:** ACLs, port security, DHCP snooping, Dynamic ARP Inspection, SSH and NAT/PAT
+- **Security:** ACLs, port security, DHCP snooping, Dynamic ARP Inspection, SSH, dynamic NAT, static NAT and PAT overload
 - **Services:** DHCP, DNS, NTP, Syslog and FTP
 - **Wireless:** Wireless LAN Controller (WLC), WLAN/SSID configuration and wireless client connectivity
 
-## Network topology
+## 🏗️ Network topology
 
 The topology is organized into three logical layers and connects two office environments through a shared core.
 
 ![Overall enterprise network topology](ScreenShots/01-Network-Topology.png)
 
-### Core layer
+### 🔷 Core layer
 - Two interconnected Layer 3 core switches provide the central backbone.
 - Layer 3 EtherChannel provides bundled Layer 3 connectivity.
 - OSPF is used for dynamic route exchange with the distribution layer and edge router.
 
-### Distribution layer
+### 🔶 Distribution layer
 - Redundant distribution switches serve Office A and Office B.
 - Inter-VLAN routing provides communication between permitted VLANs.
 - HSRP provides a virtual default gateway for gateway redundancy.
 - Rapid PVST+ controls Layer 2 forwarding paths and prevents switching loops.
 
-### Access layer
+### 🔹 Access layer
 - Access switches connect end devices to the appropriate VLANs.
 - Access and trunk links carry traffic according to the network design.
 - Port security and other Layer 2 protections are applied where configured.
 
-## Implementation details
+## ⚙️ Implementation details
 
-### 1. VLANs and switching
+### 1. 🧩 VLANs and switching
 Created and assigned VLANs across both offices, configured access and trunk ports, and practiced trunk negotiation and VLAN propagation.
 
 - VLAN creation and access-port assignment
@@ -46,7 +46,7 @@ Created and assigned VLANs across both offices, configured access and trunk port
 - Dynamic Trunking Protocol (DTP)
 - VTP Version 2
 
-### 2. EtherChannel, spanning tree and redundancy
+### 2. 🔗 EtherChannel, spanning tree and redundancy
 Configured bundled links and redundant Layer 2/gateway behavior to improve availability and control forwarding paths.
 
 - PAgP EtherChannel in Office A
@@ -56,7 +56,7 @@ Configured bundled links and redundant Layer 2/gateway behavior to improve avail
 - HSRPv2, priority and preemption
 - STP root and HSRP active-gateway alignment
 
-### 3. Routing and IP connectivity
+### 3. 🛣️ Routing and IP connectivity
 Implemented Layer 3 connectivity across VLANs, offices and the core network.
 
 - Inter-VLAN routing
@@ -66,7 +66,7 @@ Implemented Layer 3 connectivity across VLANs, offices and the core network.
 - IPv4 addressing and subnetting
 - IPv6 addressing and static routes
 
-### 4. DHCP and Layer 2 security
+### 4. 🛡️ DHCP and Layer 2 security
 Configured address assignment and switch-level protections.
 
 - DHCP pools and address bindings
@@ -75,14 +75,15 @@ Configured address assignment and switch-level protections.
 - Dynamic ARP Inspection (DAI)
 - Switch port security
 
-### 5. Access control and address translation
+### 5. 🚦 Access control and address translation
 Applied traffic filtering and edge address translation.
 
 - Standard and extended ACLs
 - Interface-based ACL application
-- NAT and PAT
+- Dynamic NAT with PAT overload and static NAT
+- The configured `POOL1` uses a `/29` mask with `.200–.207` entered; `.200` and `.207` are the network and broadcast addresses, leaving `.201–.206` as usable hosts. The guide records the lab configuration as captured rather than silently changing it.
 
-### 6. Device management and infrastructure services
+### 6. 🧰 Device management and infrastructure services
 Configured basic management access and common network services.
 
 - SSH for secure remote CLI access
@@ -91,19 +92,19 @@ Configured basic management access and common network services.
 - DNS records and client name-resolution testing
 - FTP user setup and file transfer
 
-### 7. FTP transfer and boot workflow
+### 7. 📁 FTP transfer and boot workflow
 The screenshots document the FTP account/file-transfer steps and the device information before and after the demonstrated boot workflow.
 
-### 8. Wireless infrastructure and neighbor discovery
+### 8. 📶 Wireless infrastructure and neighbor discovery
 Configured a controller-based wireless setup and checked directly connected neighbor information.
 
 - Wireless LAN Controller setup
 - Dynamic interface configuration
 - WLAN/SSID configuration
-- Wireless client association
+- Wireless client configuration evidence (the displayed client IPv4 address is affected by a Packet Tracer simulator error; successful Wi-Fi DHCP assignment is not claimed)
 - LLDP neighbor discovery
 
-## Verification
+## ✅ Verification
 
 The lab uses Cisco IOS show commands and end-device tests to check configuration state and connectivity. Examples include:
 
@@ -124,9 +125,9 @@ The lab uses Cisco IOS show commands and end-device tests to check configuration
 | NAT translations | `show ip nat translations` |
 | LLDP neighbors | `show lldp neighbors` |
 
-Connectivity checks include end-device addressing, DNS resolution, SSH access, wireless client connectivity and routed communication between network segments.
+Verification evidence includes CLI outputs for switching, routing, security and services, plus DNS resolution, SSH access and routed communication checks. The wireless client screenshot documents client-side WLAN settings only; its displayed IPv4 address is affected by a Packet Tracer simulator error, so successful Wi-Fi DHCP assignment and end-to-end wireless connectivity are not claimed.
 
-## Packet Tracer files
+## 📂 Packet Tracer files
 
 | File | Description |
 |---|---|
@@ -135,11 +136,11 @@ Connectivity checks include end-device addressing, DNS resolution, SSH access, w
 
 Open the completed file in Cisco Packet Tracer to explore the topology and configurations. The baseline file is provided to show the starting point.
 
-## Configuration documentation
+## 📚 Configuration documentation
 
 Detailed configuration references are available in the [Documentation](Documentation/README.md) folder. The guides cover switching and redundancy, routing and IPv6, security controls, network services, wireless configuration and LLDP, with Cisco IOS command examples and links to the corresponding screenshots.
 
-## Screenshot documentation
+## 🖼️ Screenshot documentation
 
 The screenshots are grouped by implementation area and numbered in workflow order. Expand a section to view its configuration evidence.
 
@@ -444,17 +445,17 @@ The screenshots are grouped by implementation area and numbered in workflow orde
 
 </details>
 
-## Tools used
+## 🧪 Tools used
 
 - Cisco Packet Tracer
 - Cisco IOS CLI
 - Git and GitHub
 
-## Learning outcomes
+## 🎯 Learning outcomes
 
 This project provided hands-on practice in designing a multi-office network, segmenting users with VLANs, configuring Layer 2 and Layer 3 connectivity, implementing routing and redundancy, applying network security controls, deploying common infrastructure services, and validating behavior through CLI output and end-device testing.
 
-## Project status
+## 📊 Project status
 
 **Implementation and screenshot documentation uploaded.** The Packet Tracer files and screenshots are included in this repository.
 
