@@ -1,8 +1,8 @@
-# Project Configuration Documentation
+# 📚 Project Configuration Documentation
 
 These reference guides describe the configuration areas implemented in the Cisco Enterprise Network Lab. They are based on the CLI output and Packet Tracer screenshots stored in the `ScreenShots/` directory.
 
-## Guides
+## 🗂️ Guides
 
 1. [Switching and Redundancy](01-Switching-and-Redundancy.md) — VLANs, access/trunk ports, DTP, VTP, PAgP/LACP EtherChannel, Rapid PVST+ and HSRPv2.
 2. [Routing and IPv6](02-Routing-and-IPv6.md) — Layer 3 interfaces, OSPF Area 0, static/floating routes and IPv6.
@@ -10,13 +10,13 @@ These reference guides describe the configuration areas implemented in the Cisco
 4. [Network Services and Management](04-Network-Services-and-Management.md) — DHCP, DNS, Syslog, NTP, SSH and FTP.
 5. [Wireless and Neighbor Discovery](05-Wireless-and-Neighbor-Discovery.md) — WLC, WLAN/client association and LLDP.
 
-## How to use these references
+## 🧭 How to use these references
 
 - The guides are documentation and learning references, not universal copy/paste templates.
 - Replace placeholders such as `<interface-id>`, `<vlan-id>` and `<REDACTED>` with values appropriate to the device and topology.
 - Interface assignments, ACL direction, routing statements and trusted-port placement must match the actual network design.
 - The screenshot links point to the corresponding CLI or service evidence in the repository.
-- Credentials, pre-shared keys and other secrets are intentionally omitted from the written guides. Redact them from public screenshots before publishing.
+- Credentials, pre-shared keys and other secrets are intentionally omitted from the written guides. The current screenshots are retained unchanged as requested; treat any visible lab credentials as public and never reuse them outside this lab.
 
 ## Lab files
 
