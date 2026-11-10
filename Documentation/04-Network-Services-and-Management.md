@@ -1,8 +1,8 @@
-# Network Services and Device Management Reference
+# 🧰 Network Services and Device Management Reference
 
 This document summarizes the services visible in the lab evidence: DHCP, DNS, Syslog, NTP, SSH and FTP.
 
-## DHCP pools
+## 📡 DHCP pools
 
 R1 provides DHCP pools for management, PC, phone and Wi-Fi networks. VLAN 30 in Office B is reserved for the SRV1 server network; the DHCP pool list below does not define a separate DHCP pool for that server VLAN.
 
@@ -74,7 +74,7 @@ show ip dhcp conflict
 
 Screenshot references: [31 – DHCP Pool Configuration](../ScreenShots/31-DHCP-Pool-Configuration.png), [32 – DHCP Bindings](../ScreenShots/32-DHCP-Bindings.png), [62 – Additional PC1 Configuration](../ScreenShots/62-Additional-PC1-Configuration.png).
 
-## DNS
+## 🌐 DNS
 
 The server screenshot shows DNS enabled on SRV1, with IPv4 address 10.5.0.4/24. The resource-record screenshot shows these entries:
 
@@ -95,7 +95,7 @@ ping youtube.com
 
 Screenshot references: [51 – DNS Server](../ScreenShots/51-DNS-Server.png), [52 – DNS Mapping](../ScreenShots/52-DNS-Mapping.png), [53 – PC1 DNS Resolution Test](../ScreenShots/53-PC1-DNS-Resolution-Test.png).
 
-## Syslog
+## 📝 Syslog
 
 The Syslog service is enabled on SRV1 at 10.5.0.4. R1's logging output shows messages sent to host 10.5.0.4 on UDP port 514.
 
@@ -106,7 +106,7 @@ show logging
 
 Screenshot references: [47 – R1 Syslog Configuration](../ScreenShots/47-R1-Syslog-Configuration.png), [48 – Syslog Server](../ScreenShots/48-Syslog-Server.png).
 
-## NTP
+## ⏱️ NTP
 
 The NTP screenshots show authenticated NTP configuration. R1 is configured as an NTP master at stratum 5 and also has an upstream NTP server entry. The client screenshot shows a client using R1 at 10.0.0.76.
 
@@ -135,7 +135,7 @@ show ntp associations
 
 Screenshot references: [49 – NTP Master and Client](../ScreenShots/49-NTP-Master-and-Client.png), [50 – NTP Client](../ScreenShots/50-NTP-Client.png).
 
-## SSH management access
+## 🔐 SSH management access
 
 The SSH evidence shows SSH version 2 and VTY lines configured for local login, synchronous logging and SSH-only inbound transport.
 
@@ -162,7 +162,7 @@ show running-config | section line vty
 
 Screenshot references: [44 – SSH Configuration](../ScreenShots/44-SSH-Configuration.png), [45 – PC1 SSH Access](../ScreenShots/45-PC1-SSH-Access.png), [46 – PC2 SSH Access](../ScreenShots/46-PC2-SSH-Access.png).
 
-## FTP file transfer and boot workflow
+## 📁 FTP file transfer and boot workflow
 
 The FTP evidence shows the FTP service enabled on SRV1, a file listing and router system-image information before and after the demonstrated FTP-based workflow. The router-side FTP credentials are intentionally omitted.
 
@@ -171,6 +171,6 @@ ip ftp username <FTP_USERNAME>
 ip ftp password <FTP_PASSWORD>
 ```
 
-The before/after screenshots document the system-image information around the FTP workflow. Credentials are placeholders here; do not publish reusable passwords.
+The before/after screenshots document the system-image information around the FTP workflow. Credentials are placeholders in this written example. The repository screenshots are retained unchanged and may show the lab credentials; treat them as public lab-only values and never reuse them elsewhere.
 
 Screenshot references: [54 – FTP User Credentials](../ScreenShots/54-FTP-User-Credentials.png), [55 – FTP File Transfer](../ScreenShots/55-FTP-File-Transfer.png), [56 – FTP Boot Before System Info](../ScreenShots/56-FTP-Boot-Before-System-Info.png), [57 – FTP Boot After System Info](../ScreenShots/57-FTP-Boot-After-System-Info.png).
