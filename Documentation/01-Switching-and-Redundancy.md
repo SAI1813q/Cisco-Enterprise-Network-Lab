@@ -1,8 +1,8 @@
-# Switching and Redundancy Configuration Reference
+# 🔀 Switching and Redundancy Configuration Reference
 
 This guide records the switching and first-hop redundancy configuration shown in the completed Packet Tracer lab and its screenshots.
 
-## VLAN segmentation
+## 🧩 VLAN segmentation
 
 | VLAN | Purpose | Office |
 |---:|---|---|
@@ -32,7 +32,7 @@ end
 show vlan brief
 ```
 
-## Access ports and 802.1Q trunking
+## 🔌 Access ports and 802.1Q trunking
 
 Access ports assign an endpoint-facing interface to one VLAN. Trunks carry multiple VLANs between network devices. The Office A trunk evidence shows native VLAN 1000 and allowed VLANs 10, 20, 40 and 99.
 
@@ -59,7 +59,7 @@ show interfaces <interface-id> switchport
 
 Screenshot references: [08 – Office A Trunking](../ScreenShots/08-Office-A-Trunking.png), [09 – Office B Trunking](../ScreenShots/09-Office-B-Trunking.png).
 
-## DTP and VTP
+## 🔄 DTP and VTP
 
 The DTP evidence shows trunk negotiation disabled on the displayed trunk interface (Negotiation of Trunking: Off), indicating a statically configured trunk.
 
@@ -73,7 +73,7 @@ show vtp counters
 
 Screenshot references: [10 – Office A DTP](../ScreenShots/10-Office-A-DTP.png), [11 – Office B DTP](../ScreenShots/11-Office-B-DTP.png), [12 – Office A VTP](../ScreenShots/12-Office-A-VTP.png), [13 – Office B VTP](../ScreenShots/13-Office-B-VTP.png).
 
-## EtherChannel
+## 🔗 EtherChannel
 
 The lab evidence shows three EtherChannel implementations:
 
@@ -115,7 +115,7 @@ The captured Layer 2 bundle is shown as `SU`, the Layer 3 bundle as `RU`, and bu
 
 Screenshot references: [14 – Office A PAgP](../ScreenShots/14-Office-A-PAgP-EtherChannel.png), [15 – Office B LACP](../ScreenShots/15-Office-B-LACP-EtherChannel.png), [16 – Layer 3 EtherChannel](../ScreenShots/16-Layer-3-EtherChannel.png).
 
-## Rapid PVST+ root bridge and HSRPv2 alignment
+## 🌳 Rapid PVST+ root bridge and HSRPv2 alignment
 
 Rapid PVST+ and HSRPv2 are configured together so that the distribution switch acting as the STP root for a VLAN is also the HSRP active gateway for that VLAN. This keeps the Layer 2 forwarding root aligned with the first-hop gateway role and avoids unnecessary traffic paths.
 
@@ -132,7 +132,7 @@ The screenshots show the following verified root/active alignment:
 | B | 30 | SRV1 server network | DSW-B2 | DSW-B2 |
 | B | 99 | Management | DSW-B1 | DSW-B1 |
 
-The evidence shows VLAN-specific STP priorities matching the VLAN IDs on the selected root switches. HSRP priorities are set higher on the same switches, with preemption enabled.
+The evidence shows the selected root switches using VLAN-specific STP priority values aligned with the VLAN IDs, while HSRP priorities are higher on those same switches and preemption is enabled. Cisco's displayed STP priority includes the extended system ID (the VLAN ID). Therefore, a displayed priority such as 10 for VLAN 10 can correspond to a configured base priority of 0. The important verification is the elected root and the matching HSRP active device for each VLAN.
 
 Office A HSRP virtual IPs shown in the output:
 
