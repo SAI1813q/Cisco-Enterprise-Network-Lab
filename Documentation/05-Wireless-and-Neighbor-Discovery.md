@@ -1,6 +1,6 @@
-# Wireless and Neighbor Discovery Reference
+# 📶 Wireless and Neighbor Discovery Reference
 
-## Wireless LAN Controller
+## 📡 Wireless LAN Controller
 
 The screenshots show a Cisco 3504 Wireless LAN Controller managed through its web interface at 10.0.0.7. The controller summary identifies the device as WLC1.
 
@@ -8,7 +8,7 @@ The WLC interface screenshot shows a dynamic interface named Wi-Fi associated wi
 
 The WLAN list shows WLAN ID 1, profile name `Wi-Fi`, SSID `Wi-Fi`, enabled status and WPA2-PSK security.
 
-## Configuration workflow
+## ⚙️ Configuration workflow
 
 1. Configure the WLC management interface and management reachability.
 2. Create the dynamic Wi-Fi interface and associate it with VLAN 40.
@@ -18,7 +18,7 @@ The WLAN list shows WLAN ID 1, profile name `Wi-Fi`, SSID `Wi-Fi`, enabled statu
 
 The wireless client screenshot records the client wireless settings and SSID. **The IPv4 address displayed in that screenshot is not evidence of a successful Wi-Fi VLAN DHCP lease.** Packet Tracer displayed an incorrect address because of a simulator error in this lab. Therefore, this screenshot is retained as evidence of the client-side wireless configuration only; it is not used to claim successful DHCP assignment or end-to-end wireless connectivity.
 
-The WLAN pre-shared key is deliberately not reproduced here. Keep it lab-only and redact it from public screenshots.
+The WLAN pre-shared key is not reproduced in this written guide. The public screenshots are retained unchanged as requested, so treat any visible wireless key as exposed and lab-only. Do not reuse it elsewhere.
 
 ## Evidence
 
@@ -27,7 +27,7 @@ The WLAN pre-shared key is deliberately not reproduced here. Keep it lab-only an
 - [60 – WLC WLAN Configuration](../ScreenShots/60-WLC-WLAN-Configuration.png)
 - [61 – Wireless Client Connection](../ScreenShots/61-Wireless-Client-Connection.png) — client wireless settings; displayed IPv4 address affected by a Packet Tracer simulator error.
 
-## LLDP neighbor discovery
+## 🔎 LLDP neighbor discovery
 
 The LLDP screenshot shows `show lldp neighbors` executed on an Office B access switch. Two router-capable neighbors are displayed with local and remote interface identifiers.
 
