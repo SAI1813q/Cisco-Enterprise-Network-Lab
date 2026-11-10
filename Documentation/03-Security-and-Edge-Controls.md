@@ -150,7 +150,10 @@ show ip nat statistics
 show ip nat translations
 ```
 
-Screenshot reference: [43 – NAT and PAT](../ScreenShots/43-NAT-and-PAT.png).
+Screenshot references:
+
+- [43 – NAT and PAT](../ScreenShots/43-NAT-and-PAT.png) – pool and translation evidence.
+- [65 – R1 NAT/PAT running configuration](../ScreenShots/65-R1-NAT-PAT-Running-Config.png) – exact pool, PAT overload and static NAT commands.
 
 ## ⚠️ Public screenshot credential note
 
